@@ -1,0 +1,14 @@
+# Inspects branch name and checks if it contains a ticket number (i.e. ABC-123).
+# If yes, commit message will be automatically prepended with (#ABC-123).
+
+# get current branch
+branchName=$(git rev-parse --abbrev-ref HEAD)
+
+# search a ticket number in a pattern such a "feature/ABC-123_description"
+ticketId=$(echo $branchName | sed -nr 's,[a-z]+/([A-Z]+-[0-9]+)_.+,\1,p')
+
+# only prepare commit message if pattern matched and ticketId was found
+if [[ ! -z $ticketId ]]; then
+  # $1 is the name of the file containing the commit message
+  sed -i.bak -e "1s~$~ #$ticketId ~" $1
+fi

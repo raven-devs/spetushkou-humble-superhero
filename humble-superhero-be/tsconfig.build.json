@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    ".husky",
+    ".vscode",
+    "bin",
+    "coverage",
+    "dist",
+    "eslint-plugin-custom-rules",
+    "node_modules",
+    "**/*spec.ts"
+  ]
+}

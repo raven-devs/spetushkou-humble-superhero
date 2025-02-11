@@ -1,0 +1,13 @@
+@PORT = 3000
+@HOST = http://localhost:{{PORT}}
+@RESOURCE = /logger
+@URL = {{HOST}}{{RESOURCE}}
+@CONTENT_TYPE_JSON = Content-Type: application/json
+
+### update level
+PATCH {{URL}}/level
+{{CONTENT_TYPE_JSON}}
+
+{
+  "level": "error"
+}

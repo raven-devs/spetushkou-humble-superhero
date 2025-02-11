@@ -1,0 +1,10 @@
+{
+  "directory": ["./src"],
+  "delete": true,
+  "singleQuotes": true,
+  "noSemicolon": false,
+  "noHeader": true,
+  "location": "replace",
+  "structure": "flat",
+  "exclude": [".*.spec.(ts|js)"]
+}

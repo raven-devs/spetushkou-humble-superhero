@@ -1,0 +1,1 @@
+npm run staged:compile && npm run staged:lint && npm run staged:test

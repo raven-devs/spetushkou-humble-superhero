@@ -1,0 +1,20 @@
+@PORT = 8080
+@HOST = http://localhost:{{PORT}}
+@RESOURCE = /superheroes
+@URL = {{HOST}}{{RESOURCE}}
+@CONTENT_TYPE_JSON = Content-Type: application/json
+@ID = 
+
+### find many
+GET {{URL}}
+{{CONTENT_TYPE_JSON}}
+
+### create
+POST {{URL}}
+{{CONTENT_TYPE_JSON}}
+
+{
+  "name": "Spider-Man",
+  "superpower": "Wall-Crawling",
+  "humilityScore": 7
+}

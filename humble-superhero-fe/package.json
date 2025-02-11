@@ -1,0 +1,55 @@
+{
+  "name": "humble-superhero-client",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.17.0"
+  },
+  "config": {
+    "dir": {
+      "dist": "./dist",
+      "src": "./src"
+    }
+  },
+  "scripts": {
+    "start:dev": "vite",
+    "format": "prettier **/* --write --ignore-unknown",
+    "lint": "eslint $npm_package_config_dir_src/**/*.{js,jsx,ts,tsx} --no-error-on-unmatched-pattern",
+    "lint:errors": "eslint $npm_package_config_dir_src/**/*.{js,jsx,ts,tsx} --no-error-on-unmatched-pattern --quiet",
+    "compile": "tsc --noEmit",
+    "prebuild": "rm -rf $npm_package_config_dir_dist",
+    "build": "tsc --project tsconfig.build.json && vite build",
+    "preview": "vite preview",
+    "npm:check:updates": "ncu --interactive --format group",
+    "npm:check:security": "npm audit"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^4.12.0",
+    "@tanstack/react-query-devtools": "^4.36.1",
+    "axios": "^1.7.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "@typescript-eslint/parser": "^8.13.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "npm-check-updates": "^17.1.10",
+    "prettier": "^3.3.3",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10"
+  }
+}

@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+// chmod -R +rwx bin/commit
+// example: node bin/commit
+// example: node bin/commit 'feat(crud): added base crud methods'
+
+const args = process.argv.slice(2);
+const message = args[0] ?? 'feat: :rocket: #NOREF-0';
+
+const spawn = require('child_process').spawn;
+
+// execute command: git add --all
+const command1 = spawn('git', ['add', '--all'], {
+  stdio: 'inherit',
+});
+
+command1.on('error', function (err) {
+  console.error(err);
+  process.exit(1);
+});
+
+// wait for a previous command termination
+command1.on('exit', function () {
+  // execute command: git commit -m [message]
+  const command2 = spawn('git', ['commit', '-m', message], { stdio: 'inherit' });
+
+  command2.on('error', function (err) {
+    console.error(err);
+    process.exit(1);
+  });
+});
